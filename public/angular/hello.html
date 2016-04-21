@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="invApp">
+<head>
+	<title>AngularJS</title>
+</head>
+<body>
+
+<div ng-controller="BorrowerListCtrl">
+
+<div ng-repeat="borrower in data.borrowers">
+				<h2> <a href="/borrower/{{borrower._id}}"> {{borrower.name}} </a></h2> 
+				<p> <strong> {{borrower.country}} </strong> | {{borrower.category}}</p>
+				<p> {{borrower.shortDescription}} </p>
+				<span class="badge pull-right badge-default">{{borrower.percentageFunded}} % funded</span>
+				<span class="pull-right">${{borrower.stillRequired}} to go</span>
+				<a href="/borrower">Read their story » </a>
+				<p class="address">{{borrower.fundedBy}}</p>
+				<button type="button" class="btn btn-warning">lend $25</button>
+</div>
+
+
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+    <script type="text/javascript" src="invApp.js"></script>
+</body>
+</html>

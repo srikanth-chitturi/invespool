@@ -1,0 +1,30 @@
+
+<div id="banner" class="page-header">
+	<div class="row">
+		<div class="col-lg-6">
+			<h1>{{pageHeader.title}}</h1>
+		</div>
+	</div>
+</div>
+
+
+<div class="col-xs-12 col-sm-8" ng-controller="BorrowerListController">
+	{{!-- <div class="error">
+		{{message}}
+	</div> --}}
+	<label for="filter">Filter Results</label>
+	<input type="text" id="filter" name="filter" ng-model="textFilter">
+	<div class="error">{[{message}]}</div>
+	<div class="row list-group">
+			<div class="col-xs-12 list-group-item" ng-repeat="borrower in data.borrowers | filter:textFilter">
+				<h2> <a href="/borrower/{[{borrower._id}]}"> {[{borrower.name}]} </a></h2> 
+				<p> <strong> {[{borrower.country}]} </strong> | {[{borrower.category}]}</p>
+				<p> {[{borrower.shortDescription}]} </p>
+				<span class="badge pull-right badge-default">{[{borrower.percentageFunded}]} % funded</span>
+				<span class="pull-right">{[{borrower.stillRequired | currency}]} to go</span>
+				<a href="/borrower">Read their story » </a>
+				<p class="address">{[{borrower.fundedBy}]}</p>
+				<button type="button" class="btn btn-warning">lend $25</button>
+			</div>
+	</div>
+</div>
