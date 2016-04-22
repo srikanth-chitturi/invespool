@@ -4,6 +4,10 @@ var apiOptions = {
 	server: "http://localhost:3000"
 };
 
+if (process.env.NODE_ENV === 'production') {
+  apiOptions.server = "https://invespool.herokuapp.com";
+}
+
 var renderBorrowersPage = function(req, res, responseBody) {
 	res.render('borrowers-list', {
 		title: 'List of Borrowers',
@@ -40,5 +44,5 @@ module.exports.borrowerInfo = function(req, res) {
 			renderBorrowerDetails(req,res,body);
 		}
 	);
-	
+
 }
